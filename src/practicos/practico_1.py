@@ -1,4 +1,4 @@
-import math
+
 def tipo_de_triangulo(l1:float,l2:float,l3:float)->float:
     triangulo = "isoseles"
     if l1 > 0 and l2 >= 0 and l3 >=0:
@@ -66,3 +66,114 @@ def cuantos_espacios_ingreso():
     Ejercicio 5 ingreso
     TODO hacer el ingreso de datos
     """
+
+def secuencia(n:int):
+    for i in range(1,n+1):
+        print(f"{i}",end=' ')
+
+def secuencia_par(n:int):
+    for i in range(1,n+1):
+        if i % 2 == 0:
+            print(f"{i}",end=' ')
+
+def secuencia_ingreso():
+    secuencia(int(input("ingrse un numero positivo: ")))
+    print()
+    secuencia_par(int(input("ingrse un numero positivo: ")))
+#secuencia_ingreso()
+
+def suma_de_secuencia(numeros:list) -> float:
+    resultado:float = 0
+    for numero in numeros:
+        resultado = resultado + numero
+    return resultado
+        
+def promedio_de_secuencia(numeros:list)->float:
+    return suma_de_secuencia(numeros)/len(numeros)
+
+def operaciones_numeros():
+   lista = []
+   n = int(input("Ingrese la cantidad de numeros para la secuencia: "))
+   for i in range(0,n):
+       numero = float(input(f"numero {i+1}: "))
+       lista.append(numero)
+   print(f"La suma de la secuencia es: {suma_de_secuencia(lista)}")
+   print(f"El promedio de la secuencia es: {promedio_de_secuencia(lista)}")
+
+#operaciones_numeros()
+
+def multiplo_entre_intervalo(a:int,b:int,x:int)->list:
+    lista = []
+    for i in range(a,b+1):
+        if i % 6 == 0:
+            lista.append(i)
+    return lista
+
+def dibujar_rectangulo(ancho,alto,caracter,relleno):
+    carsep = caracter + '  '
+    print(carsep*ancho)
+    for i in range(0,alto-2):
+        print(f"{caracter}  {(relleno+'  ')*(ancho-2)}{caracter}",sep='')
+    print(carsep*ancho)
+
+#dibujar_rectangulo(40,40,'b','o')
+
+def promedio_y_cantidad_ingresada():
+    salida = False
+    lista = []
+    while not salida:
+        numero = int(input("ingrese num pos: "))
+        if numero >=0:
+            lista.append(numero)
+        else:
+            salida = True
+    
+    print(f"El Promedio es: {promedio_de_secuencia(lista):.2f} con cantidad de numeros {len(lista)}")
+
+#promedio_y_cantidad_ingresada()
+
+def ordenar_secuencia_de_numeros():
+    salida = False
+    lista = []
+    while not salida:
+        numero = int(input("ingrese num pos: "))
+        if numero !=0:
+            lista.append(numero)
+        else:
+            salida = True
+    print(sorted(lista))
+
+#ordenar_secuencia_de_numeros()
+
+def caracter_consecutivo():
+    caracter = input("Ingresar un caracter: ")
+    numero = int(input("Ingrese un número: "))
+    print(caracter*numero)
+
+#caracter_consecutivo()
+
+def cantidad_de_vocales():
+    cadena= input("Ingrese una cadena: ")
+    cantidad_de_vocales = cadena.count('a')
+    cantidad_de_vocales += cadena.count('e')
+    cantidad_de_vocales += cadena.count('i')
+    cantidad_de_vocales += cadena.count('o')
+    cantidad_de_vocales += cadena.count('u')
+    print(f"La cantidad de vocales de la cadena es: {cantidad_de_vocales}")
+    return cantidad_de_vocales
+#cantidad_de_vocales()
+def cantidad_sin_ppuntuacion(cadena:str):
+    contador:int = 0
+    for caracter in cadena:
+        if caracter.isalpha() or caracter.isalnum():
+            contador += 1
+    return contador
+
+def palabras_separadas_por_espacios(cadena:str):
+    lista = cadena.split()
+    return len(lista)
+
+def propiedades_de_cadena(cadena:str):
+    print(f"Número total de caracteres: {len(cadena)}")
+    print(f"Cantidad de total de letras sin signos de puntuación: {cantidad_sin_ppuntuacion(cadena)}")
+    print(f"Cantidad de palabras separadas por espacios: {palabras_separadas_por_espacios(cadena)}")

@@ -1,4 +1,4 @@
-import pytest, math
+import pytest
 from src.practicos.practico_1 import *
 
 @pytest.mark.parametrize(
@@ -68,7 +68,6 @@ def test_pintura_para_habitacion_rectangular_manos(ancho,alto,largo,manos,espera
     """
     assert pintura_para_habitacion_rectangular_manos(ancho,alto,largo,manos) == esperado
 
-
 @pytest.mark.parametrize(
         "n1,n2,n3,esperado",
         [
@@ -93,3 +92,56 @@ def test_mayor_de_tres(n1,n2,n3,esperado):
 )
 def test_cuantos_espacios(cadena,esperado):
     assert cuantos_espacios(cadena) == esperado
+
+@pytest.mark.parametrize(
+        "serie,esperado",
+        [
+            ([1,2,3,4,5,6],21),
+        ]
+)
+def test_suma_de_secuencia(serie,esperado):
+    assert suma_de_secuencia(serie) == esperado
+
+@pytest.mark.parametrize(
+        "serie,esperado",
+        [
+            ([1,2,3,4,5],3),
+        ]
+)
+def test_promedio_de_secuencia(serie,esperado):
+    assert promedio_de_secuencia(serie) == esperado
+
+@pytest.mark.parametrize(
+        "a,b,x,esperado",
+        [
+            (1,78,6,[6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78]),
+            (1,5,6,[]),
+        ]
+)
+def test_multiplo_entre_intervalo(a,b,x,esperado):
+    assert multiplo_entre_intervalo(a,b,x) == esperado
+
+
+@pytest.mark.parametrize(
+        "cadena,esperado",
+        [
+            ("cadena123.56",11),
+            ("123",3),
+            ("",0),
+            (",.-a",1)
+        ]
+)
+def test_cantidad_sin_ppuntuacion(cadena,esperado):
+    assert cantidad_sin_ppuntuacion(cadena)== esperado
+
+@pytest.mark.parametrize(
+        "cadena,esperado",
+        [
+            ("cadena123 palabra  otraapalabra",3),
+            ("",0),
+            ("  ",0),
+            ("palabra",1)
+        ]
+)
+def test_palabras_separadas_por_espacios(cadena,esperado):
+    assert palabras_separadas_por_espacios(cadena) == esperado
