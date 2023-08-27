@@ -131,7 +131,7 @@ def test_multiplo_entre_intervalo(a,b,x,esperado):
             (",.-a",1)
         ]
 )
-def test_cantidad_sin_ppuntuacion(cadena,esperado):
+def test_cantidad_sin_puntuacion(cadena,esperado):
     assert cantidad_sin_ppuntuacion(cadena)== esperado
 
 @pytest.mark.parametrize(
@@ -145,3 +145,14 @@ def test_cantidad_sin_ppuntuacion(cadena,esperado):
 )
 def test_palabras_separadas_por_espacios(cadena,esperado):
     assert palabras_separadas_por_espacios(cadena) == esperado
+
+@pytest.mark.parametrize(
+        "lista,esperado",
+        [
+            ([0,1,2,3,4,6],True),
+            ([0,1,2,3,8,6],False)
+        
+        ]
+)
+def test_es_ordenada(lista,esperado):
+    assert esta_ordenada(lista) == esperado

@@ -131,20 +131,32 @@ def promedio_y_cantidad_ingresada():
     print(f"El Promedio es: {promedio_de_secuencia(lista):.2f} con cantidad de numeros {len(lista)}")
 
 #promedio_y_cantidad_ingresada()
+#Inicio Ejercicio 12
+def esta_ordenada(lista:list):
+    listaOrdenada:list = []
+    for item in lista:
+        listaOrdenada.append(item)
+    listaOrdenada.sort()
 
-def ordenar_secuencia_de_numeros():
+    return listaOrdenada == lista
+
+def recolectar_secuencia_de_numeros():
     salida = False
     lista = []
     while not salida:
-        numero = int(input("ingrese num pos: "))
-        if numero !=0:
-            lista.append(numero)
-        else:
-            salida = True
-    print(sorted(lista))
+        try:
+            numero = int(input("ingrese num pos: "))
+            if numero !=0:
+                lista.append(numero)
+            else:
+                salida = True
+            
+        except:
+            print("Ingrese un número: ")
+    print(f"Lista ingresada ordenada: {esta_ordenada(lista)}")
 
-#ordenar_secuencia_de_numeros()
-
+recolectar_secuencia_de_numeros()
+#Fin Ejercicio 12
 def caracter_consecutivo():
     caracter = input("Ingresar un caracter: ")
     numero = int(input("Ingrese un número: "))
