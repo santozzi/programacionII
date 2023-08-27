@@ -132,7 +132,7 @@ def promedio_y_cantidad_ingresada():
 
 #promedio_y_cantidad_ingresada()
 #Inicio Ejercicio 12
-def esta_ordenada(lista:list):
+def esta_ordenada(lista:list) ->bool:
     listaOrdenada:list = []
     for item in lista:
         listaOrdenada.append(item)
@@ -155,7 +155,7 @@ def recolectar_secuencia_de_numeros():
             print("Ingrese un número: ")
     print(f"Lista ingresada ordenada: {esta_ordenada(lista)}")
 
-recolectar_secuencia_de_numeros()
+#recolectar_secuencia_de_numeros()
 #Fin Ejercicio 12
 def caracter_consecutivo():
     caracter = input("Ingresar un caracter: ")
