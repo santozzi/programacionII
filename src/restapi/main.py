@@ -6,6 +6,9 @@ class manejador(http.server.SimpleHTTPRequestHandler):
        if self.path =='/saludo':
            self.path='saludo.html'
        return http.server.SimpleHTTPRequestHandler.do_GET(self)
+    
+   # def do_POST(self):
+        
 
 PORT = 8000
 handler = manejador
